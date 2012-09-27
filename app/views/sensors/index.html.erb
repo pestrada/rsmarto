@@ -1,0 +1,9 @@
+<h1>Listing Sensors</h1>
+
+<% @sensors.each do |sensor| %>
+  <h4><%= sensor.id %></h4>
+  <p><%= sensor.name %></p>
+  <p><%= sensor.measurement %></p>
+  <p><%= sensor.scale %></p>
+  <p><%= sensor.value %></p>
+<% end %>

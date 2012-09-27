@@ -1,5 +1,7 @@
 Rsmarto::Application.routes.draw do
   
+  resources :sensors
+  
   get "home/index"
 
   root to: 'home#index'
