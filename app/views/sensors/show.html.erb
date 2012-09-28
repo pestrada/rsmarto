@@ -1,3 +1,4 @@
+<p><%= notice%></p>
 <h1>Sensor: <%= @sensor.id %></h1>
 
 <h4><%= @sensor.id %></h4>
@@ -5,3 +6,5 @@
 <p><%= @sensor.measurement %></p>
 <p><%= @sensor.scale %></p>
 <p><%= @sensor.value %></p>
+
+<%= link_to 'delete', @sensor, method: :delete, data: { confirm: 'Really delete?' } %>
