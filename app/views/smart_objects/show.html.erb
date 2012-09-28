@@ -1,0 +1,9 @@
+<p><%= notice%></p>
+<h1>Smart Object: <%= @smart_object.id %></h1>
+
+<p><%= @smart_object.object_type %></p>
+<p><%= @smart_object.name %></p>
+<p><%= @smart_object.status %></p>
+
+<%= link_to 'edit', edit_smart_object_path(@smart_object) %><br />
+<%= link_to 'delete', @smart_object, method: :delete, data: { confirm: 'Really delete?' } %>

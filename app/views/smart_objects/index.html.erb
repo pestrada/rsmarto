@@ -1,0 +1,11 @@
+<h1>Listing Smart Objects</h1>
+
+<% @smart_objects.each do |so| %>
+  <h4><%= so.id %></h4>
+  <p><%= so.object_type %></p>
+  <p><%= so.name %></p>
+  <p><%= so.status %></p>
+<% end %>
+
+<%= link_to 'Create Smart Object', new_smart_object_path %>
+

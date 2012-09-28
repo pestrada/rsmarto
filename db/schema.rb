@@ -11,13 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120927165651) do
+ActiveRecord::Schema.define(:version => 20120928174215) do
 
   create_table "sensors", :force => true do |t|
     t.string   "name"
     t.string   "measurement"
     t.string   "scale"
     t.decimal  "value"
+    t.integer  "smart_object_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "sensors", ["smart_object_id"], :name => "index_sensors_on_smart_object_id"
+
+  create_table "smart_objects", :force => true do |t|
+    t.string   "object_type"
+    t.string   "name"
+    t.string   "status"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

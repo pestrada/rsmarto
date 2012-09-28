@@ -1,0 +1,2 @@
+module SmartObjectsHelper
+end

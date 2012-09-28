@@ -1,6 +1,8 @@
 Rsmarto::Application.routes.draw do
-  
-  resources :sensors
+    
+  resources :smart_objects do
+    resources :sensors
+  end
   
   resources :sensors do
     member do

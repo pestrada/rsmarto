@@ -1,0 +1,34 @@
+<%= form_for(@smart_object) do |smart_object_form| %>
+  <% if @smart_object.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@smart_object.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @smart_object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div>
+    <%= smart_object_form.label :object_type %><br />
+    <%= smart_object_form.text_field :object_type %>
+  </div>
+  <div>
+    <%= smart_object_form.label :name %><br />
+    <%= smart_object_form.text_field :name %>
+  </div>
+  <div>
+    <%= smart_object_form.label :status %><br />
+    <%= smart_object_form.text_field :status %>
+  </div>
+  <h3>Sensors</h3>
+  <% @smart_object.sensors.each do |sensor| %>
+    <h4><%= sensor.id %></h4>
+    <p><%= sensor.name %></p>
+  <% end %>
+  <div>
+    <%= smart_object_form.submit 'Save' %>
+  </div>
+<% end %>
