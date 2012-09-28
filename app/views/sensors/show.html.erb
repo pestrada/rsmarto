@@ -7,4 +7,5 @@
 <p><%= @sensor.scale %></p>
 <p><%= @sensor.value %></p>
 
+<%= link_to 'edit', edit_sensor_path(@sensor) %><br />
 <%= link_to 'delete', @sensor, method: :delete, data: { confirm: 'Really delete?' } %>
