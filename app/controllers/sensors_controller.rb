@@ -42,7 +42,7 @@ class SensorsController < ApplicationController
   end
   
   def edit
-    @sensor = Sensor.find(parms[:id])
+    @sensor = Sensor.find(params[:id])
   end
   
   def update
@@ -66,6 +66,46 @@ class SensorsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to  sensors_path }
       format.json { head :no_content }
+    end
+  end
+  
+  def name
+    @sensor = Sensor.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @sensor.name.to_json(only: :name) }
+      format.xml { render xml: @sensor.to_xml(only: :name) }
+    end
+  end
+  
+  def measurement
+    @sensor = Sensor.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @sensor.measurement.to_json(only: :measurement) }
+      format.xml { render xml: @sensor.to_xml(only: :measurement) }
+    end
+  end
+  
+  def scale
+    @sensor = Sensor.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @sensor.name.to_json(only: :scale) }
+      format.xml { render xml: @sensor.to_xml(only: :scale) }
+    end
+  end
+  
+  def value
+    @sensor = Sensor.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @sensor.name.to_json(only: :value) }
+      format.xml { render xml: @sensor.to_xml(only: :value) }
     end
   end
   

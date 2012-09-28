@@ -2,6 +2,12 @@ Rsmarto::Application.routes.draw do
   
   resources :sensors
   
+  resources :sensors do
+    member do
+      get 'name', 'measurement', 'scale', 'value'
+    end
+  end
+   
   get "home/index"
 
   root to: 'home#index'
