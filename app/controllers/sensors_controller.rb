@@ -5,7 +5,8 @@ class SensorsController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json { render json: @sensors}
+      format.json { render json: @sensors }
+      format.xml { render json: @sensors }
     end
   end
   
@@ -15,6 +16,7 @@ class SensorsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @sensor}
+      format.xml { render json: @sensor }
     end
   end
   
@@ -24,6 +26,7 @@ class SensorsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @sensor}
+      format.xml { render json: @sensor }
     end
   end
   

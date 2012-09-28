@@ -5,7 +5,8 @@ class SmartObjectsController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json { render json: @smart_objects}
+      format.json { render json: @smart_objects }
+      format.xml { render xml: @smart_objects }
     end
   end
   
@@ -15,6 +16,7 @@ class SmartObjectsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @sensor}
+      format.xml { render xml: @smart_object }
     end
   end
   
@@ -37,7 +39,8 @@ class SmartObjectsController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json { render json: @smart_object}
+      format.json { render json: @smart_object }
+      format.xml { render xml: @smart_object }
     end
   end
   
@@ -66,6 +69,36 @@ class SmartObjectsController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @smart_object.errors, status: :unprocessable_entity }
       end
+    end
+  end
+  
+  def object_type
+    @smart_object = SmartObject.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @smart_object.to_json(only: :object_type) }
+      format.xml { render xml: @smart_object.to_xml(only: :object_type) }
+    end
+  end
+  
+  def name
+    @smart_object = SmartObject.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @smart_object.to_json(only: :name) }
+      format.xml { render xml: @smart_object.to_xml(only: :name) }
+    end
+  end
+  
+  def status
+    @smart_object = SmartObject.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @smart_object.to_json(only: :status) }
+      format.xml { render xml: @smart_object.to_xml(only: :status) }
     end
   end
   

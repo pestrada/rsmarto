@@ -18,12 +18,16 @@
   <div>
     <%= smart_object_form.label :name %><br />
     <%= smart_object_form.text_field :name %>
-  </div>
   <div>
     <%= smart_object_form.label :status %><br />
     <%= smart_object_form.text_field :status %>
   </div>
   <h3>Sensors</h3>
+  <select>
+    <%= options_from_collection_for_select(Sensor.all, :id, :name) %>
+  </select>
+  
+  <br /><br />
   <% @smart_object.sensors.each do |sensor| %>
     <h4><%= sensor.id %></h4>
     <p><%= sensor.name %></p>
