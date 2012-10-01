@@ -77,7 +77,7 @@ class SensorsController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json { render json: @sensor.name.to_json(only: :name) }
+      format.json { render json: @sensor.to_json(only: :name) }
       format.xml { render xml: @sensor.to_xml(only: :name) }
     end
   end
@@ -87,7 +87,7 @@ class SensorsController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json { render json: @sensor.measurement.to_json(only: :measurement) }
+      format.json { render json: @sensor.to_json(only: :measurement) }
       format.xml { render xml: @sensor.to_xml(only: :measurement) }
     end
   end
@@ -97,7 +97,7 @@ class SensorsController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json { render json: @sensor.name.to_json(only: :scale) }
+      format.json { render json: @sensor.to_json(only: :scale) }
       format.xml { render xml: @sensor.to_xml(only: :scale) }
     end
   end
@@ -107,7 +107,7 @@ class SensorsController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json { render json: @sensor.name.to_json(only: :value) }
+      format.json { render json: @sensor.to_json(only: :value) }
       format.xml { render xml: @sensor.to_xml(only: :value) }
     end
   end
