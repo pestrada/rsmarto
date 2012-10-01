@@ -4,13 +4,12 @@ Rsmarto::Application.routes.draw do
     member do
       get 'object_type', 'name', 'status'
     end
-    
-    resources :sensors do
-      member do
-        get 'name', 'measurement', 'scale', 'value'
-      end
+  end
+  
+  resources :sensors do
+    member do
+      get 'name', 'measurement', 'scale', 'value'
     end
-    
   end
    
   get "home/index"
