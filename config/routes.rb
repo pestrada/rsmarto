@@ -2,7 +2,7 @@ Rsmarto::Application.routes.draw do
   
   resources :smart_objects do
     member do
-      get 'object_type', 'name', 'status'
+      get 'object_type', 'name', 'status', 'sensors'
     end
   end
   

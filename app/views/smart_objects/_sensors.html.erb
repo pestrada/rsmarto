@@ -1,0 +1,5 @@
+<ul>
+  <% @smart_object.sensors.each do |sensor| %>
+    <li><%= link_to sensor.name, sensor %></li>
+  <% end %>
+</ul>

@@ -72,6 +72,17 @@ class SmartObjectsController < ApplicationController
     end
   end
   
+  def sensors
+    @smart_object = SmartObject.find(params[:id])
+    @sensors = @smart_object.sensors
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @sensors }
+      format.xml { render xml: @sensors }
+    end
+  end
+  
   def object_type
     @smart_object = SmartObject.find(params[:id])
     

@@ -5,11 +5,7 @@
 <p><%= @smart_object.name %></p>
 <p><%= @smart_object.status %></p>
 <h4>Sensors:</h4>
-<ul>
-  <% @smart_object.sensors.each do |sensor| %>
-    <li><%= link_to sensor.name, sensor %></li>
-  <% end %>
-</ul>
+<%= render partial: 'sensors' %>
 
 <%= link_to 'edit', edit_smart_object_path(@smart_object) %><br />
 <%= link_to 'delete', @smart_object, method: :delete, data: { confirm: 'Really delete?' } %>

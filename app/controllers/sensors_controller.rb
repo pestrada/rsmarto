@@ -71,7 +71,7 @@ class SensorsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+    
   def name
     @sensor = Sensor.find(params[:id])
     
