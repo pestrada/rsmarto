@@ -49,7 +49,7 @@ class SmartObjectsController < ApplicationController
     @smart_object.destroy
     
     respond_to do |format|
-      format.html { redirect_to  smart_objects_path }
+      format.html { redirect_to smart_objects_path }
       format.json { head :no_content }
     end
   end

@@ -67,7 +67,7 @@ class SensorsController < ApplicationController
     @sensor.destroy
     
     respond_to do |format|
-      format.html { redirect_to  sensors_path }
+      format.html { redirect_to sensors_path }
       format.json { head :no_content }
     end
   end
