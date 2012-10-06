@@ -1,47 +1,34 @@
 class SmartObjectsController < ApplicationController
   
+  respond_to :html, :xml, :json
+  
   def index
     @smart_objects = SmartObject.all
-    
-    respond_to do |format|
-      format.html
-      format.json { render json: @smart_objects }
-      format.xml { render xml: @smart_objects }
-    end
-  end
-  
-  def new
-    @smart_object = SmartObject.new
-    
-    respond_to do |format|
-      format.html
-      format.json { render json: @sensor}
-      format.xml { render xml: @smart_object }
-    end
-  end
-  
-  def create
-    @smart_object = SmartObject.new(params[:smart_object])
-    
-    respond_to do |format|
-      if @smart_object.save
-        format.html { redirect_to @smart_object, notice: 'Smart object was succesfully created' }
-        format.json { render json: @smart_object, status: :created, location: @sensor }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @sensor.errors, status: :unprocessable_entity}
-      end
-    end
+    respond_with(@smart_objects)
   end
   
   def show
     @smart_object = SmartObject.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-      format.json { render json: @smart_object }
-      format.xml { render xml: @smart_object }
+    respond_with(@smart_object)
+  end
+  
+  def new
+    @smart_object = SmartObject.new
+    respond_with(@smart_object)
+  end
+  
+  def create
+    @smart_object = SmartObject.new(params[:smart_object])
+    if @smart_object.save
+      flash[:notice] = 'Smart object was succesfully created'
     end
+    
+    respond_with(@smart_object, status: :created)
+  end
+  
+  def edit
+    @smart_object = SmartObject.find(params[:id])
+    respond_with(@smart_object)
   end
   
   def destroy
@@ -54,33 +41,20 @@ class SmartObjectsController < ApplicationController
     end
   end
   
-  def edit
-    @smart_object = SmartObject.find(params[:id])
-  end
-  
   def update
     @smart_object = SmartObject.find(params[:id])
-    
-    respond_to do |format|
-      if @smart_object.update_attributes(params[:smart_object])
-        format.html { redirect_to @smart_object, notice: 'Smart object was updated' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @smart_object.errors, status: :unprocessable_entity }
-      end
+    if @smart_object.update_attributes(params[:smart_object])
+      flash[:notice] = 'Smart object was updated'
     end
+    
+    respond_with(@smart_object)
   end
   
   def sensors
     @smart_object = SmartObject.find(params[:id])
     @sensors = @smart_object.sensors
     
-    respond_to do |format|
-      format.html
-      format.json { render json: @sensors }
-      format.xml { render xml: @sensors }
-    end
+    respond_with(@sensors)
   end
   
   def object_type
