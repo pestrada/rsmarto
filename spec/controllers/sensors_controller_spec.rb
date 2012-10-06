@@ -41,8 +41,8 @@ describe SensorsController do
     let(:params) { { id: 1, name: 'sensy', measurement: 'temperature', scale: 'C', value: 2 } }
     it 'creates a new sensor' do
       Sensor.should_receive(:new).and_return(sensor)
-      Sensor.should_receive(:save).and_return(true)
-      post :create, id: params
+      sensor.should_receive(:save).and_return(true)
+      post :create, params
       response.should redirect_to(sensor)
     end
   end
