@@ -3,5 +3,5 @@ class Sensor < ActiveRecord::Base
   
   belongs_to :smart_object
   
-  validates_presence_of :name, :measurement, :scale, :value, :on => :create, :message => "can't be blank"
+  validates :name, :measurement, :scale, :value, presence: { message: "can't be blank" }
 end

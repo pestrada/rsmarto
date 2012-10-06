@@ -37,6 +37,16 @@ describe SensorsController do
     end
   end
   
+  describe 'POST #create' do
+    let(:params) { { id: 1, name: 'sensy', measurement: 'temperature', scale: 'C', value: 2 } }
+    it 'creates a new sensor' do
+      Sensor.should_receive(:new).and_return(sensor)
+      Sensor.should_receive(:save).and_return(true)
+      post :create, id: params
+      response.should redirect_to(sensor)
+    end
+  end
+  
   describe 'PUT #update' do
     it 'updates the sensor attributes' do
       Sensor.should_receive(:find).and_return(sensor)
@@ -45,16 +55,6 @@ describe SensorsController do
       response.should redirect_to(sensor)
     end
   end
-  
-  # describe 'POST #create' do
-    # let(:params) { { id: 1, name: 'sensy', measurement: 'temperature', scale: 'C', value: 2 } }
-    # it 'creates a new sensor' do
-      # Sensor.should_receive(:new).with(params).and_return(sensor)
-      # Sensor.should_receive(:save).and_return(true)
-      # post :create, params
-      # response.should redirect_to(sensor)
-    # end
-  # end
   
   describe 'DELETE #destroy' do
     it 'deletes the sensor' do
