@@ -59,32 +59,17 @@ class SmartObjectsController < ApplicationController
   
   def object_type
     @smart_object = SmartObject.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-      format.json { render json: @smart_object.to_json(only: :object_type) }
-      format.xml { render xml: @smart_object.to_xml(only: :object_type) }
-    end
+    respond_with(@sensor, only: :object_type)
   end
   
   def name
     @smart_object = SmartObject.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-      format.json { render json: @smart_object.to_json(only: :name) }
-      format.xml { render xml: @smart_object.to_xml(only: :name) }
-    end
+    respond_with(@sensor, only: :name)
   end
   
   def status
     @smart_object = SmartObject.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-      format.json { render json: @smart_object.to_json(only: :status) }
-      format.xml { render xml: @smart_object.to_xml(only: :status) }
-    end
+    respond_with(@sensor, only: :status)
   end
   
 end

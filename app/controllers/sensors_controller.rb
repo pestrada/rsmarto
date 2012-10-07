@@ -49,42 +49,22 @@ class SensorsController < ApplicationController
     
   def name
     @sensor = Sensor.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-      format.json { render json: @sensor.to_json(only: :name) }
-      format.xml { render xml: @sensor.to_xml(only: :name) }
-    end
+    respond_with(@sensor, only: :name)
   end
   
   def measurement
     @sensor = Sensor.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-      format.json { render json: @sensor.to_json(only: :measurement) }
-      format.xml { render xml: @sensor.to_xml(only: :measurement) }
-    end
+    respond_with(@sensor, only: :measurement)
   end
   
   def scale
     @sensor = Sensor.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-      format.json { render json: @sensor.to_json(only: :scale) }
-      format.xml { render xml: @sensor.to_xml(only: :scale) }
-    end
+    respond_with(@sensor, only: :scale)
   end
   
   def value
     @sensor = Sensor.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-      format.json { render json: @sensor.to_json(only: :value) }
-      format.xml { render xml: @sensor.to_xml(only: :value) }
-    end
+    respond_with(@sensor, only: :value)
   end
   
 end
