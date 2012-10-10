@@ -59,17 +59,17 @@ class SmartObjectsController < ApplicationController
   
   def object_type
     @smart_object = SmartObject.find(params[:id])
-    respond_with(@sensor, only: :object_type)
+    respond_with(@smart_object, only: :object_type)
   end
   
   def name
     @smart_object = SmartObject.find(params[:id])
-    respond_with(@sensor, only: :name)
+    respond_with(@smart_object, only: :name)
   end
   
   def status
     @smart_object = SmartObject.find(params[:id])
-    respond_with(@sensor, only: :status)
+    respond_with(@smart_object, only: :status)
   end
   
 end
