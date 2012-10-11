@@ -35,10 +35,7 @@ class SmartObjectsController < ApplicationController
     @smart_object = SmartObject.find(params[:id])
     @smart_object.destroy
     
-    respond_to do |format|
-      format.html { redirect_to smart_objects_path }
-      format.json { head :no_content }
-    end
+    respond_with(@smart_object, location: smart_objects_path)
   end
   
   def update
