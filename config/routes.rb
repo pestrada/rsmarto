@@ -15,11 +15,7 @@ Rsmarto::Application.routes.draw do
     end
   end
     
-  resource :reasoner do
-    member do
-      get 'infer'
-    end
-  end
+  resource :reasoner
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

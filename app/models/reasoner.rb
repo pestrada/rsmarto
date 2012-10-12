@@ -4,8 +4,7 @@ class Reasoner < ActiveRecord::Base
   
   attr_accessible :name
   
-  def self.infer(id)
-    smart_object = SmartObject.find(id)
+  def self.infer(smart_object)
     status = apply_rules(smart_object)
     
     data = "<status>#{status}</status>"
