@@ -16,17 +16,19 @@ describe ReasonersController do
     
     context 'GET json' do
       it 'returns the inference in json' do
-        inference.should_receive(:to_json).and_return(:inference_json)
+        inference.should_receive(:to_json).and_return(inference_json)
         get :show, smart_object: 1, format: :json
         response.should be_success
+        response.body.should == inference_json
       end
     end
     
     context 'GET xml' do
       it 'returns the inference in xml' do
-        inference.should_receive(:to_xml).and_return(:inference_xml)
+        inference.should_receive(:to_xml).and_return(inference_xml)
         get :show, smart_object: 1, format: :xml
         response.should be_success
+        response.body.should == inference_xml
       end
     end
   end
