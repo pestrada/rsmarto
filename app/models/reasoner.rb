@@ -7,7 +7,7 @@ class Reasoner < ActiveRecord::Base
   def self.infer(smart_object)
     status = apply_rules(smart_object)
     
-    data = "<status>#{status}</status>"
+    data = status
     
     inference = smart_object.inferences.new
     inference.body = data
