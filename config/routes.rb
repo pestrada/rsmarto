@@ -15,7 +15,7 @@ Rsmarto::Application.routes.draw do
     end
   end
     
-  resource :reasoner
+  resource :reasoner, defaults: { format: 'xml' }
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
