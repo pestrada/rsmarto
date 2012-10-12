@@ -1,4 +1,7 @@
 Rsmarto::Application.routes.draw do
+  get "home/index"
+
+  root to: 'home#index'
   
   resources :smart_objects do
     member do
@@ -11,10 +14,12 @@ Rsmarto::Application.routes.draw do
       get 'name', 'measurement', 'scale', 'value'
     end
   end
-   
-  get "home/index"
-
-  root to: 'home#index'
+    
+  resource :reasoner do
+    member do
+      get 'infer'
+    end
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

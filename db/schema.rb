@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928174215) do
+ActiveRecord::Schema.define(:version => 20121011205237) do
+
+  create_table "inferences", :force => true do |t|
+    t.string   "body"
+    t.integer  "smart_object_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "inferences", ["smart_object_id"], :name => "index_inferences_on_smart_object_id"
+
+  create_table "reasoners", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "sensors", :force => true do |t|
     t.string   "name"
